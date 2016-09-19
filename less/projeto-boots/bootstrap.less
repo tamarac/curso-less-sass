@@ -1,0 +1,41 @@
+@import 'bootstrap/less/variables';
+@import 'bootstrap/less/mixins';
+body {
+	color: black;
+	font-size: @font-size-base;
+	font-family: @font-family-sans-serif;
+}
+a {
+	color: @link-hover-color;
+	text-decoration: none;
+	&:hover {
+		color:@link-hover-color;
+	}
+}
+.btn {
+	display: inline-table;
+	padding: 4px 12px;
+	.button-variant(@link-color, #eee ,@btn-default-border);
+	.border-radius(5px);
+
+}
+h1 {
+	font-size: @font-size-h1;
+	color: red;
+}
+h2 {
+	font-size: @font-size-h2;
+	color: red;
+}
+h3 {
+	font-size: @font-size-h3;
+	color: red;
+}
+h4 {
+	font-size: @font-size-h4;
+	color: red;
+}
+h5 {
+	font-size: @font-size-h5;
+	color: red;
+}

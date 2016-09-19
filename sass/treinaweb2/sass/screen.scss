@@ -1,0 +1,57 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "normalize";
+@import "blankwork/blankwork";
+@import "bourbon/bourbon";
+
+$colorLink : #00aeff;
+#main {
+	@include wrapper;
+}
+header {
+	h1 {
+		@include column(8);
+	}
+	nav#first {
+		@include column(4);
+	}
+	nav#social {
+		@include column(3);
+		@include omega;
+		float:right;
+	}
+	ul {
+		list-style: none;
+		li {
+			float: left;
+			a {
+				display: block;
+				padding:4px 10px;
+			}
+		}
+	}
+}
+.container {
+	@include container;
+	section {
+		@include column($_columns / 3);
+		&.first {
+			@include alpha;
+		}		
+		&.last {
+			@include omega;
+		}
+	}
+}
+a {
+	color:$colorLink;
+}
+a.btn {
+	@include button;
+}
+footer {
+	clear:both;
+}

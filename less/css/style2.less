@@ -1,0 +1,32 @@
+@MainWidth: 960px;
+
+//mixins
+.setColunasWidth(@colunas: 4, @margem:4%){
+    //@margemTotal: (@colunas -1) * @margem;
+    //width: (100% - @margemTotal) / @colunas;
+    margin-left: @margem;
+    &.primeiro{ 
+      margin-left: 0;
+    }
+}
+.main(@width){
+  width: @width;
+}
+#main {
+  .main(@MainWidth);
+  margin:  0 auto;
+}
+.colunas {
+  float: left;
+  background: #999;
+  .setColunasWidth();
+}
+footer {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    float: left;
+    //.setColunasWidth(3);
+  }
+}

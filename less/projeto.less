@@ -1,0 +1,107 @@
+// ========================================================================
+// Variáveis & Mixins
+// ========================================================================
+
+@baseColor:     #353535;
+@baseLinkColor: #5FAA3C;
+
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+     -moz-border-radius: @radius;
+          border-radius: @radius;
+}
+
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+
+// ========================================================================
+// Estilos
+// ========================================================================
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #eee url(https://treinaweb-cursos.s3.amazonaws.com/prod/102/arquivos/fundo.png) no-repeat;
+}
+
+article {
+    background: #fff;
+    box-shadow: 0 0 5px rgba(0,0,0,.2);
+    color: @baseColor;
+    font: 14px/22px serif;
+    margin: 50px auto;
+    padding: 50px;
+    position: relative;
+    text-align: justify;
+    width: 450px;
+
+    &::before,
+    &::after {
+        background: inherit;
+        box-shadow: inherit;
+        content: '';
+        display: block;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        .transform(rotate(2deg));
+        width: 100%;
+        z-index: -1;
+    }
+
+    &::after {
+        .transform(rotate(-1deg));
+    }
+
+    h1 {
+      color: @baseColor;
+      font: italic 700 22px/22px serif;
+      margin: 10px 0 15px 0;
+    }
+
+    p {
+        color: @baseColor;
+        margin: 25px 0;
+
+        a {
+            color: @baseLinkColor;
+
+            &:hover {
+                color: lighten(@baseLinkColor, 10%);
+            }
+        }
+    }
+
+    aside {
+        ul {
+            list-style-type: none;
+            margin-bottom: 0;
+            padding: 0;
+
+            li {
+                display: inline;
+
+                a {
+                    background-color: @baseLinkColor;
+                    .border-radius(5px);
+                    color: #FFF;
+                    padding: 5px 10px;
+                    margin-right: 10px;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: lighten(@baseLinkColor, 10%);
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@cinza: #F4F4F4;
+@paddingBase : 10px;
+@radius:10px;
+.border-radius (@radius) {
+  border-radius: @radius;
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+}
+
+header{
+  background-color: @cinza;
+  .border-radius(10px);
+}
+
+footer{
+  background-color: @cinza;
+  .border-radius(10px);
+}
+span {
+  color: #F00;
+  text-shadow: 1px 1px 0px #FFF;
+}
+.loopH (@index) when (@index > 0) {
+  (~"h@{index}") {
+    padding: @paddingBase;
+    color:#545454;
+    font-size: 40px - 5 * @index;
+  }
+  .loopH(@index - 1);
+}
+.loopH(6);

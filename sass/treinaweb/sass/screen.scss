@@ -1,0 +1,131 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "partials/normalize";
+@import "partials/blankwork/blankwork";
+@import "partials/bourbon/bourbon";
+@import "compass/typography";
+@import "sprites/*.png";
+
+$colorLink : #00aeff;
+#main {
+  @include wrapper;
+}
+$_column-width: 6.25%;   // Width of a single column
+$_gutter: 2.08333%; 
+header {
+  h1 {
+    @include column(8);
+    a {
+      display: block;
+      @include sprites-sprite("logo");
+      @include hide-text;
+      height: 128px;
+    }
+  }
+  nav#first {
+    @include column(4);
+  }
+  nav#social {
+    @include column(3);
+    @include omega;
+    float:right;
+    a {
+        @include hide-text;
+    }
+    .facebook {
+      @include sprites-sprite("facebook");
+      width: 24px;
+      height: 24px;
+      @include hide-text;
+    }.twitter {
+      @include sprites-sprite("twitter");
+      width: 24px;
+      height: 24px;
+
+    }.youtube {
+      @include sprites-sprite("youtube");
+      width: 24px;
+      height: 24px;
+    }
+
+  }
+  ul {
+    list-style: none;
+    li {
+      float: left;
+      a {
+        display: block;
+        padding:4px 10px;
+      }
+    }
+  }
+}
+.container {
+  @include container;
+  section {
+    @include column($_columns / 3);
+    &.first {
+      @include alpha;
+    }   
+    &.last {
+      @include omega;
+    }
+  }
+}
+a {
+  color:$colorLink;
+}
+a.btn {
+  @include button(pill);
+}
+footer {
+  clear:both;
+}
+@media screen and (max-width: 768px) {
+  #main {
+    @include wrapper;
+  }
+  header {
+    h1 {
+      @include column(7);
+    }
+    nav#first {
+      @include column(5);
+    }
+
+  }
+  .container {
+    section{
+      &.first {
+        margin-left: 1.5%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 480px) {
+  #main {
+    @include wrapper;
+  }
+  header {
+    h1 {
+      @include column(12);
+    }
+    nav#first {
+      @include column(7);
+    }
+    nav#social {
+      @include column(5);
+    }
+
+  }
+  .container {
+    section{
+      @include column(12);
+      margin-left: 1.5%;
+      
+    }
+  }
+}

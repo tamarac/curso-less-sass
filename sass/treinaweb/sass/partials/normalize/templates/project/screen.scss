@@ -1,0 +1,10 @@
+@import "normalize";
+@include normalize;
+
+// It is also possible to use only parts of normalize.css, i.e.:
+// 
+// @include normalize-html5;
+// @include normalize-base;
+// @include normalize-links;
+// 
+// ...
